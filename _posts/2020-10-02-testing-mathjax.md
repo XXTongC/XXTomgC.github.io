@@ -5,17 +5,20 @@ tags: mathjax
 math: true
 date: 2026-03-11 15:32 +0800
 ---
+
 # 智能指针 SmartPointer
+
  智能指针就是帮我们C++程序员管理动态分配的内存的，它会帮助我们自动释放new出来的内存，从而避免内存泄漏！记住添加 memory模块
+ 
 ```cpp
 #include <memory> //or import <memory>;
 ```
 
-
-
 ## unique_ptr
+
 unique_ptr< T >对象类似于指向T类型的指针，是唯一的，换而言之，不能有多个unique_ptr<>对象保存相同的地址   
 注:虽然不能复制unique_ptr<>,但是使用std::move()函数可以把一个unique_ptr<>对象储存的的地址移动到另一个unique_ptr<>对象中。执行该操作后，最初的智能指针就再次变成空指针。
+
 ```cpp
 #include <iostream>
 #include <memory>
