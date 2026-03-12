@@ -1,6 +1,3 @@
-# 位置：博客根目录/algorithm.md
-# 后缀：.md 或 .markdown
-
 ---
 layout: page
 title: 算法笔记
