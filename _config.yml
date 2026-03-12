@@ -69,3 +69,6 @@ author:
   name: XXTong
   url: https://github.com/XXTongC/
   email: 2449208757@qq.com
+
+liquid:
+  error_mode: lax
