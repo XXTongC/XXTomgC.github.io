@@ -1,8 +1,15 @@
+---
+title: "DFS"
+date: 2023-09-05
+categories: [算法, 图算法]
+tags: [DFS, 搜索]
+---
 # DFS
 
 ## 题一
 
 ![题一](./pic/Question1.png)
+
 ```cpp
 #include <iostream>
 const int N = 10;
@@ -41,6 +48,7 @@ int main()
 	dfs(0);
 }
 ```
+
 ![题二](./pic/Question2.png)
 
 和树很像
