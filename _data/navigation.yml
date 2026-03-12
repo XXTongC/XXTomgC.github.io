@@ -2,3 +2,13 @@
   url: /
 - title: About
   url: /about/
+
+main:
+  - title: "首页"
+    url: /
+  - title: "算法笔记"
+    url: /algorithm/
+  - title: "博客"
+    url: /posts/
+  - title: "关于"
+    url: /about/
