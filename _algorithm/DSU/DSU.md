@@ -1,4 +1,11 @@
+---
+title: "并查集（Union-Find）"
+date: 2024-01-15
+categories: [算法, 数据结构]
+tags: [union-find, 并查集, 图算法, 数据结构]
+---
 # 并查集
+
 并查集主要处理两个问题：   
 1. 将两个集合合并   
 2. 询问两个元素是否在一个集合当中   
@@ -12,8 +19,11 @@ if(p[x]==x)
 while(p[x]!=x) x=p[x]   
 问题3：如何合并两个集合？    
 p[x]是x的集合编号，p[y]是y的集合编号-> p[x] = y    
+
 ## 题一
+
 ![题一](./pic/Question1.png)
+
 ```cpp
 #include <iostream>
 
