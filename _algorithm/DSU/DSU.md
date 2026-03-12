@@ -22,7 +22,7 @@ p[x]是x的集合编号，p[y]是y的集合编号-> p[x] = y
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/DSU/pic/Question1.png)
 
 ```cpp
 #include <iostream>
@@ -67,7 +67,7 @@ int main()
 }
 ```
 ## 题二
-![题二](./pic/Question2.png)
+![题二](/algorithm/DSU/pic/Question2.png)
 何谓连通块，其实和题一一个道理，只不过将集合抽象成一个连通块而已，此题多了一个size的维护，因为其答案只与根节点有关，我们维护根节点的size值即可。
 ```cpp
 #include <iostream>
@@ -120,7 +120,7 @@ int main()
 }
 ```
 ## 题三
-![题三](./pic/Qestion3.png)
+![题三](/algorithm/DSU/pic/Qestion3.png)
 此题的巧妙之处是使用节点到根节点的距离对3取模的值来模拟食物链：   
 distance % 3   
 = 0 --->  与根节点同类   

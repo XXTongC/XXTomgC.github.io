@@ -1,3 +1,9 @@
+---
+title: "Lowbit运算"
+date: 2024-01-30
+categories: [算法, 位运算]
+tags: [位运算, lowbit, 树状数组, 二进制, bit-manipulation, fenwick-tree]
+---
 # lowbit运算
 lowbit运算的结果是返回一个数的二进形式下最后一个1及之后的二进制数。     
 实现形式（x为一个整数）：
