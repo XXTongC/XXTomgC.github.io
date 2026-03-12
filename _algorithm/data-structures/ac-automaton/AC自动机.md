@@ -1,3 +1,9 @@
+---
+title: "AC自动机（Aho-Corasick Automaton）"
+date: 2023-11-25
+categories: [算法, 字符串算法]
+tags: [字符串, AC自动机, 多模式匹配, 自动机, Trie树, KMP, 字符串匹配]
+---
 # AC自动机
 
 AC自动机其实就是Trie 树与KMP 的结合。对于KMP，处理的字符串是以线性结构存储，而对于AC自动机是处理树形存储的字符串的匹配问题。
@@ -20,23 +26,23 @@ her
 
 在构建的过程中，我们先将 she 按顺序接下去，我们将每一个单词的结尾标记一下：
 
-![1-1](./pic/1-1.png)
+![1-1](/algorithm/data-structures/ac-automaton/pic/1-1.png)
 
 然后我们加入第二个单词 he ，这时候我们需要明确Trie树的构建原则：
 
 **从根节点开始，每一层一种字母只能出现一次，如果要接入的单词已经存在，就不用添加，后面的字母接到已有字母的后面**
 
-![1-2](pic/1-2.png)
+![1-2](/algorithm/data-structures/ac-automaton/pic/1-2.png)
 
 我们继续接入单词 say ，此时就能看出Trie树的特点了：
 
-![1-3](./pic/1-3.png)
+![1-3](/algorithm/data-structures/ac-automaton/pic/1-3.png)
 
 在这一次构建中，单词she 和单词say 共用了一个起点s，这样不仅节约了空间，还方便了单词匹配。
 
 最后我们构建出的Trie树长这样子：
 
-![1-4](./pic/1-4.png)
+![1-4](/algorithm/data-structures/ac-automaton/pic/1-4.png)
 
 随后我们给出代码的实现，代码会有详细注释：
 
@@ -93,7 +99,7 @@ int main{
 
 首先我们知道root节点和首字母节点一定都是指向空的（一个字母哪来相等前后缀），所以我们直接将首字母推入队列中，就不从root节点开始了。
 
-![1-5](./pic/1-5.png)
+![1-5](/algorithm/data-structures/ac-automaton/pic/1-5.png)
 
 我们先将编号为**1**的节点取出来，我们找它的子节点，它的子节点有编号为**2**的**h**节点和编号为**6**的**a**节点，将它们推入队列中。对于空节点，我们让其连接到与父节点的fail指针指向的节点的子节点中相同元素的节点，此时会有两者可能（代码优化的地方就在这里）：
 
@@ -105,13 +111,13 @@ int main{
 
 所以我们总结一下，找到该节点的父节点的fail指针指向的节点，然后在这个节点的子节点中寻找是否有相等的元素，有，这个节点的fail指针指向它；没有，就指继续向上跳，直至找到或到达根节点
 
-![1-6](./pic/1-6.png)
+![1-6](/algorithm/data-structures/ac-automaton/pic/1-6.png)
 
 接下来只需要重复这个过程即可。
 
 最终的fail指针图如下：
 
-![1-7](pic/1-7.png)
+![1-7](/algorithm/data-structures/ac-automaton/pic/1-7.png)
 
 ***
 
@@ -153,8 +159,8 @@ void build()
 
 ### 题一
 
-![题一-1](./pic/Question1-1.png)
-![题一-2](./pic/Question1-2.png)   
+![题一-1](/algorithm/data-structures/ac-automaton/pic/Question1-1.png)
+![题一-2](/algorithm/data-structures/ac-automaton/pic/Question1-2.png)   
 
 这题就是对AC自动机简单的运用，我们用这题来讲解匹配的过程：
 
