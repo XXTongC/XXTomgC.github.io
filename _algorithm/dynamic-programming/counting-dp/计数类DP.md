@@ -1,6 +1,12 @@
+---
+title: "计数类DP（Counting DP）"
+date: 2023-10-07
+categories: [算法, 动态规划]
+tags: [dp, 动态规划, 计数dp, 方案数, counting]
+---
 # 计数类DP
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/dynamic-programming/counting-dp/pic/Question1.png)
 
 此题思路很重要，我们可以将问题转换为完全背包问题 —— 将无限个1 ~ n 种体积分别为1 ~ n 的物品装入体积为 n的背包中共有多少种方案
 

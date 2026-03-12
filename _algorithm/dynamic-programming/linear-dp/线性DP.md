@@ -1,16 +1,24 @@
+---
+title: "线性DP（Linear DP）"
+date: 2023-10-10
+categories: [算法, 动态规划]
+tags: [dp, 动态规划, 线性dp, linear-dp, 序列dp]
+---
 # 线性DP
 
 具有明显的线性关系的dp题目被称为线性dp，例如题一中我们一层一层地遍历每个元素并且是从左到右地去线性遍历
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/dynamic-programming/linear-dp/pic/Question1.png)
 
 此题的题目很明确——要求我们找到路径使得节点权重和最大，对于这道题，最直接的想法是将dp[i][j]的含义定义为：从上到下直至nums[i][j]为终点的最大路径。但这样又引出一个问题——我们的三角形右边界需要特判
-![从上到下路径的问题](pic/1-1.png)
+
+![从上到下路径的问题](/algorithm/dynamic-programming/linear-dp/pic/1-1.png)
 
 此时我们将dp[i][j]的含义定义为：从下到上直至nums[i][j]为终点的最大路径。就可以避免这样的问题
-![从下到上路径的好处](./pic/1-2.png)
+
+![从下到上路径的好处](/algorithm/dynamic-programming/linear-dp/pic/1-2.png)
 
 y式分析法：
 1. 状态表示：dp[i][j]
@@ -23,7 +31,8 @@ y式分析法：
    2. 来自右下方：dp[i-1][j-1]  +  nums[i][j]
    3. 两者取max
 
-![y式分析法](pic/1-4.png)
+![y式分析法](/algorithm/dynamic-programming/linear-dp/pic/1-4.png)
+
 ```cpp
 #include <iostream>
 #include <algorithm>
@@ -75,7 +84,7 @@ int main()
 
 ## 题二（LIS——最长上升子序列一）
 
-![题二](./pic/Question2.png)
+![题二](/algorithm/dynamic-programming/linear-dp/pic/Question2.png)
 
 y氏分析法：
 1. 状态表示：dp[i]
@@ -84,15 +93,16 @@ y氏分析法：
 2. 状态计算（j < i）：
    1. 包含i：   dp[j] + 1 
    2. 不包含i： dp[i] = 1
-![y式分析法](./pic/2-1.png)
+
+![y式分析法](/algorithm/dynamic-programming/linear-dp/pic/2-1.png)
 
 Karl五步法：
 1. dp[i]代表i及i之前最长的递增子序列   
 2. dp[i]等于arr[i]>arr[k](i>k)时最大的dp[k]加上一，即    
 if(arr[i]>arr[k]) dp[i]=std::max(dp[i],dp[k]+1)因为这里的dp[i]是在变化的，所以说其实dp[i]与dp[k]+1的比较是在寻找i之前最大的递增子序列长度    
-3. 因为只有一个系列，单个元素也可以视为一个递增子序列，所以dp全部初始化为1    
-4. 因为子序列是有顺序的，我们选择从前到后遍历，内层循环也一样   
-5. 举例推导过程略过   
+1. 因为只有一个系列，单个元素也可以视为一个递增子序列，所以dp全部初始化为1    
+2. 因为子序列是有顺序的，我们选择从前到后遍历，内层循环也一样   
+3. 举例推导过程略过   
 
 ```cpp
 #include <iostream>
@@ -133,13 +143,13 @@ int main()
 memset(dp, 1, sizeof dp);	//其实数组中的值并没有被初始化为1，而是全被初始化为了16843009
 ```
 这里截取CSDN的weiambt用户的解释：
-![2-2](./pic/2-2.png)
+![2-2](/algorithm/dynamic-programming/linear-dp/pic/2-2.png)
 所以如果我们要初始化一个int数组，我们只能使用0或者-1
 ***
 
 ## 题三（最长上升子序列二）
 
-![题三](./pic/Question3.png)
+![题三](/algorithm/dynamic-programming/linear-dp/pic/Question3.png)
 
 此题与上一题不同的地方就是数据的输入范围变了，我们的数组范围变到了10w，所以如果我们不进行优化继续使用上题中$O(n^2)$的算法，那么我们必定超时
 
@@ -233,7 +243,7 @@ int main()
 
 ## 题四（LCS——最长公共子序列）
 
-![题四](./pic/Question4.png)
+![题四](/algorithm/dynamic-programming/linear-dp/pic/Question4.png)
 
 y总分析法：
 1. 状态表示：
@@ -242,15 +252,16 @@ y总分析法：
 2. 状态计算：
    1. 如果A[i] == B[j]，那么dp[i][j] = dp[i-1][j-1] + 1;
    2. 如果A[i] != B[j]，那么dp[i][j] = std::max(dp[i-1][j], dp[i][j-1])
-![4-1](./pic/4-1.png)
+
+![4-1](/algorithm/dynamic-programming/linear-dp/pic/4-1.png)
 
 Karl五步法：
 1. dp[i][j]指的是长度为[1,i]的Text1字符串与长度为[1,j]的Text2字符串的最长公共子序列。   
 2. 如果Text[i]与Text[j]相等，那么dp[i][j]=dp[i-1][j-1]+1,    
 如果不相等，那么dp[i][j]=std::max(dp[i-1][j],dp[i][j-1])。     
-3. 因为两者之间会出现完全不重复的情况，所以dp初始值为0。    
-4. 遍历顺序均为递增。    
-5. 举例推导过程略过    
+1. 因为两者之间会出现完全不重复的情况，所以dp初始值为0。    
+2. 遍历顺序均为递增。    
+3. 举例推导过程略过    
 
 ```cpp
 #include <iostream>
@@ -290,7 +301,7 @@ int main()
 
 ## 题五与题六（最短编辑距离）
 
-![题五](./pic/Question5.png)
+![题五](/algorithm/dynamic-programming/linear-dp/pic/Question5.png)
 
 y氏分析法：
 
@@ -342,7 +353,8 @@ int main()
 }
 ```
 
-![题六](./pic/Question6.png)
+![题六](/algorithm/dynamic-programming/linear-dp/pic/Question6.png)
+
 此题与上题核心代码一致，只是需要多次判断和考察做题者对代码基础的掌握
 ```cpp
 #include <iostream>

@@ -1,8 +1,14 @@
+---
+title: "区间DP（Interval DP）"
+date: 2024-05-22
+categories: [算法, 动态规划]
+tags: [dp, 动态规划, 区间dp, interval-dp, 区间动态规划]
+---
 # 区间DP
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/dynamic-programming/interval-dp/pic/Question1.png)
 
 此题我们需要发现，我们的合并是相邻两个区间的合并，所以最后，我们一定是左边的一个大区间与右边的一个大区间合并成最终的区间
 
@@ -15,7 +21,7 @@ y氏分析法：
    2. 属性：Min
 2. 状态计算：假设最后我们的左半边只有一个集合组成、两个集合组成、三个集合组成...那么我们就可以分成N-1类，假设我们左边由k个集合组成，那么我们可以知道，1 ~ k与k+1 ~ n之间是没有任何关系的，是可以分开单独求值的（分治思想）。此时我们合并的值其实就等于dp[1][k] + dp[k+1][n] + s[n] - s[0]，如此我们递归下去求与更新之前的min值即可得到我们的答案。
 
-![1-1](./pic/1-1.png)
+![1-1](/algorithm/dynamic-programming/interval-dp/pic/1-1.png)
 
 法一：
 
@@ -113,14 +119,14 @@ int main()
 
 ## 题二
 
-![Question2-1](./pic/Question2-1.png)
-![Question2-2](./pic/Question2-2.png)
+![Question2-1](/algorithm/dynamic-programming/interval-dp/pic/Question2-1.png)
+![Question2-2](/algorithm/dynamic-programming/interval-dp/pic/Question2-2.png)
 
 与算法基础课中的石子合并不同的地方在于此题的石堆摆放是圆形的，也就是说首尾相接，正常的遍历方式就会漏掉很多合并方案。
 
 对于这类环形问题，一个经典的解决方案就是将环拆成链，而后负责一份数据接到尾部以模拟环，如图：
 
-![2-1](./pic/2-1.png)
+![2-1](/algorithm/dynamic-programming/interval-dp/pic/2-1.png)
 
 那么我们以题一中的方法一可写出代码：
 

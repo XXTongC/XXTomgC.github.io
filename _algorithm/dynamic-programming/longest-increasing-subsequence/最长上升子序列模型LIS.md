@@ -1,11 +1,17 @@
+---
+title: "最长上升子序列（Longest Increasing Subsequence, LIS）"
+date: 2023-10-24
+categories: [算法, 动态规划]
+tags: [dp, 动态规划, lis, 最长上升子序列, 子序列, 二分优化]
+---
 # 最长上升子序列模型LIS
 
 回想第一次做算法题，遇到的第一题是LCIS，最长公共上升子序列，当时给我整崩溃了，两天从DP的基础啃，啃了LIS和LCS，然后再看着其他人的题解理解了那题和那题的做法，现在开始系统地学习算法了，终于又遇到它啦！
 
 ## 题一
 
-![题一-1](./pic/Question1-1.png)
-![题二-2](./pic/Question1-2.png)
+![题一-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question1-1.png)
+![题二-2](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question1-2.png)
 
 这题很简单，就是求最长上升子序列和最长下降子序列，然后取两者最大值，是一个模板题
 
@@ -27,7 +33,7 @@ y氏分析法：
 2. 状态计算（j < i）：
    1. 包含i：   dp[j] + 1 
    2. 不包含i： dp[i] = 1
-![y式分析法](./pic/1-1.png)
+![y式分析法](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/1-1.png)
 
 ```cpp
 #include <iostream>
@@ -74,7 +80,7 @@ int main()
 
 ## 题二
 
-![题二](./pic/Question2.png)
+![题二](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question2.png)
 
 此题与上题是相似的，为什么说是相似的呢？
 
@@ -131,7 +137,7 @@ int main()
 
 ## 题三
 
-![题三](./pic/Question3.png)
+![题三](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question3.png)
 
 与上题完全相同，但是答案需要取被去掉的人数。
 
@@ -183,8 +189,8 @@ int main()
 
 ## 题四
 
-![题四](./pic/Question4-1.png)   
-![题四](./pic/Question4-2.png)   
+![题四](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question4-1.png)   
+![题四](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question4-2.png)   
 
 题意大致如下，在河中建桥，每对希望建桥的城市之间只能建一座桥，并且桥不能交叉建：
 
@@ -193,7 +199,7 @@ int main()
 
 目标：最多可以建多少座桥
 
-![4-1](./pic/4-1.png)
+![4-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/4-1.png)
 （如果只建绿色桥是合法的一种方案，但凡有红色桥出现和其他桥相交就是非法的）
 
 那我们如何将问题转换为LIS呢？
@@ -201,8 +207,8 @@ int main()
 很妙的方法就是将友好城市对以其中一岸为升序排列。如此，如果我们另一岸出现了降序排序，就一定会导致修建的桥相交。
 
 假设友好城市对：1 <--> 11 、 2 <--> 17
-![4-2](./pic/4-2.png)   
-![4-3](./pic/4-3.png)
+![4-2](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/4-2.png)   
+![4-3](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/4-3.png)
 
 ```cpp
 #include <iostream>
@@ -243,8 +249,8 @@ int main()
 
 ## 题五
 
-![题五-1](./pic/Question5-1.png)   
-![题五-2](./pic/Question5-2.png)
+![题五-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question5-1.png)   
+![题五-2](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question5-2.png)
 
 此题求得是**最大**上升子序列**和**，而不是**最长**上升子序列，但其实两者是一致的，大家回忆一下LIS的思路，状态计算是长度的变化，那**最大**上升子序列**和**的状态计算就是和的大小的变化，所以我们只需要把LIS的代码中状态计算的逻辑变化一下就行。
 
@@ -283,7 +289,7 @@ int main()
 
 ## 题六
 
-![题六](./pic/Question6.png)
+![题六](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question6.png)
 
 此题一共有两问：
 
@@ -306,7 +312,7 @@ int main()
 
 二、再者，我们需要来证明最优解做法下拦截系统的个数  <=  贪心做法下拦截系统的个数
 
-![6-1](./pic/6-1.png)
+![6-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/6-1.png)
 
 假设我们将新的导弹划归“最佳解法”，那么最佳解法之前最后一颗需要拦截导弹的高度一定大于等于新的，同理根据贪心思想核心我们也可以接到贪心解法里。
 
@@ -358,8 +364,8 @@ int main()
 
 ## 题七
 
-![题七-1](./pic/Question7-1.png)
-![题七-2](./pic/Question7-2.png)
+![题七-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question7-1.png)
+![题七-2](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question7-2.png)
 
 此题虽然分在DP一章，但其实它的做法是DFS，作为类比题目加于此处。
 
@@ -547,8 +553,8 @@ int main()
 
 ## 题八（LCIS）
 
-![题八-1](./pic/Question8-1.png)   
-![题八-2](./pic/Question8-2.png)
+![题八-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question8-1.png)   
+![题八-2](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/Question8-2.png)
 
 又是熟悉的题目，就当旧题新做啦！
 
@@ -568,7 +574,7 @@ y总分析法：
 将集合分为包含A[i]和不包含A[i]两种不重不漏的区间。不包含A[i]自然就是dp[i-1][j] 以B[j]结尾的考虑A[1 ~ i-1] 和B[1 ~ j]的LCIS。
 
 如果不包含A[i]，那么这半边集合我们又可以分为以B[k]最为倒数第二个树，不重不漏的区间。
-![8-1](./pic/8-1.png)    
+![8-1](/algorithm/dynamic-programming/longest-increasing-subsequence/pic/8-1.png)    
 
 ***
 

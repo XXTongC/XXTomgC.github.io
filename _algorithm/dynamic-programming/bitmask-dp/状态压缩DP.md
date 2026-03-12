@@ -1,8 +1,14 @@
+---
+title: "状态压缩DP（Bitmask DP）"
+date: 2024-10-30
+categories: [算法, 动态规划]
+tags: [dp, 动态规划, 状态压缩, bitmask-dp, 位运算, 集合dp]
+---
 # 状态压缩DP
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/dynamic-programming/bitmask-dp/pic/Question1.png)
 
 题解核心思想：先放横着的，再放竖着的，而我们的总方案数，等于只放横着的小方块的合法方案数（因为剩下的空格自然只能放竖着的小方块）。
 
@@ -15,24 +21,24 @@
 y氏分析法：
 一、状态表示：集合：dp[i][j]表示已经将前i-1列摆好，且从第i-1列，伸出到第i列的状态是j（j代表i列中是否被从i-1横着摆放的小方块占用，如图dp[2][11001]）的所有方案。
 
-![1-1](./pic/1-1.png)
+![1-1](/algorithm/dynamic-programming/bitmask-dp/pic/1-1.png)
 
 二、状态计算：
 
 我们来看一下我们如何计算我们的状态，我们先来理一下由dp[i][j]我们能够得到的信息：
    1. 我们目前确定了第i列的状态为j，例如dp[5][36]，这里的4需要转换为二进制来看，36 = 0010 0100，此时我们的棋盘状态如下：
-   ![1-2](./pic/1-2.png)   
+   ![1-2](/algorithm/dynamic-programming/bitmask-dp/pic/1-2.png)   
    绿色代表已被填满区域，但是不清楚其是由横着的小方块和竖着的小方块用什么方式构成    
    黄色代表我们上面所说的从i-1列延申到i列的横着的小方块    
    白色区域是我们确定了没有摆物品的区域
    2. 此时我们的dp[5][36]的值怎么算呢？我们这时看向倒数第二个状态，也就是看向i-2与i-1的关系。    
    我们知道dp[5][36]指这个状态下所有的组合方案，那么我们确定的只有第i列，第i-1列究竟是由几个横着的小方块和竖着的小方块构成呢？下面展示其中两种可能   
-   ![1-3](./pic/1-3.png)    
-   ![1-4](./pic/1-4.png)    
+   ![1-3](/algorithm/dynamic-programming/bitmask-dp/pic/1-3.png)    
+   ![1-4](/algorithm/dynamic-programming/bitmask-dp/pic/1-4.png)    
    那么我们通过集合来看就会有很多很多个这样的dp[i-1][k]（k是满足条件的一个集合）组成   
-   ![1-5](./pic/1-5.png)    
+   ![1-5](/algorithm/dynamic-programming/bitmask-dp/pic/1-5.png)    
    这时我们就得寻找满足条件的k，我们发现，如果k随便取，会发生这样的情况    
-   ![1-6](./pic/1-6.png)   
+   ![1-6](/algorithm/dynamic-programming/bitmask-dp/pic/1-6.png)   
    如图所示k = 38，也就是二进制10 0110，我们出现了冲突块和单个置空块     
    根据这样的情况我们知道，我们需要使 k & j == 0 且 k中连续空着的小方块长度必须偶数，否则就会出现空置域导致无法填满该处。这样我们才能决定我们的下一步是补全或继续填小方块
 
@@ -99,7 +105,7 @@ int main()
 
 ## 题二
 
-![题二](./pic/Question2.png)
+![题二](/algorithm/dynamic-programming/bitmask-dp/pic/Question2.png)
 
 看题设我们可以知道，给的数据一定构成一个没有自环和重边的有权无向图，并且这个无向图保证任意两点之间都有边。那么我们可以简单地将其抽象为一个排列问题，例如20个不同颜色的苹果进行排列，给定了头和尾，那么我们排列的可能性就是$18!$，是一个极其巨大的数字，也就是说我们使用暴力枚举的话是一定会超时的。
 
@@ -185,7 +191,7 @@ int main()
 
 ## 题三
 
-![Question-3](./pic/Question3.png)
+![Question-3](/algorithm/dynamic-programming/bitmask-dp/pic/Question3.png)
 
 y总分析法：
 
@@ -282,8 +288,8 @@ int main()
 
 ## 题四
 
-![Question4-1](./pic/Question4-1.png)
-![Question4-2](./pic/Question4-2.png)
+![Question4-1](/algorithm/dynamic-programming/bitmask-dp/pic/Question4-1.png)
+![Question4-2](/algorithm/dynamic-programming/bitmask-dp/pic/Question4-2.png)
 
 此题比上题简单些，少了一维的dp，但是多了一个需要判断所枚举的状态是否能放到地图中的条件，只需要再判断一下是否满足条件即可。
 
@@ -374,9 +380,9 @@ int main()
 
 ## 题五
 
-![Question5-1](./pic/Question5-1.png)
-![Question5-2](./pic/Question5-2.png)
-![Question5-3](./pic/Question5-3.png)
+![Question5-1](/algorithm/dynamic-programming/bitmask-dp/pic/Question5-1.png)
+![Question5-2](/algorithm/dynamic-programming/bitmask-dp/pic/Question5-2.png)
+![Question5-3](/algorithm/dynamic-programming/bitmask-dp/pic/Question5-3.png)
 
 刚开始看此题感觉并不难，理所当然地认为只不过是比上一题多一维度罢了，做到后面发现MLE才知道，这题考的是空间复杂度优化......
 
@@ -593,14 +599,14 @@ int main()
 
 ## 题六
 
-![Question6-1](./pic/Question6-1.png)
-![Question6-2](./pic/Question6-2.png)
+![Question6-1](/algorithm/dynamic-programming/bitmask-dp/pic/Question6-1.png)
+![Question6-2](/algorithm/dynamic-programming/bitmask-dp/pic/Question6-2.png)
 
 问题翻译：给一个图，选择一个点作为树顶（根节点），生成一个最小代价树，其连接代价为树节点之间的距离$\times$上一个节点深度（根节点深度为1）
 
 如图：
 
-![6-1](./pic/6-1.png)
+![6-1](/algorithm/dynamic-programming/bitmask-dp/pic/6-1.png)
 
 ***
 
@@ -614,7 +620,7 @@ int main()
 
 反过来，假设在题意限制下我们得到的最小树如图：
 
-![6-2](./pic/6-2.png)
+![6-2](/algorithm/dynamic-programming/bitmask-dp/pic/6-2.png)
 
 若存在一条更短边使得4可以连向2，那么2-->4的代价会严格变小，因为边长$\times$节点深度时节点深度也在变小，所以得到$B\leq A$
 
