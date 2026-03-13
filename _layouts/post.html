@@ -2,6 +2,10 @@
 layout: default
 ---
 
+{% if page.math %}
+  {% include mathjax.html %}
+{% endif %}
+
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-meta">
