@@ -1,5 +1,11 @@
+---
+title: "Prim 算法"
+date: 2024-08-10
+categories: [算法, 图论]
+tags: [图论, 最小生成树, prim, 贪心算法, mst, 堆优化, 优先队列]
+---
 # Prim算法
-![Prim算法的思想](./pic/Idea%20of%20Prim.png)
+![Prim算法的思想](/algorithm/graph-theory/minimum-spanning-tree/Prim/pic/Idea%20of%20Prim.png)
 Prim算法的基础思想：   
 **种一颗从1个节点增长到n个节点的树**
 1. 初始时树只有一个节点，可以是任意一个节点
@@ -10,9 +16,9 @@ Prim算法的基础思想：
 4. 算法循环次数是节点的数量，因为每次循环都会往树里添加一个节点
 
 简述版：每增加一个节点，就从当前所有已增加节点的无终点边中选出不会造成回路的一条最短边
-![prim算法流程展示](./pic/Prim-Iteration.png)
+![prim算法流程展示](/algorithm/graph-theory/minimum-spanning-tree/Prim/pic/Prim-Iteration.png)
 ## 题一
-![题一](./pic/Question1.png)
+![题一](/algorithm/graph-theory/minimum-spanning-tree/Prim/pic/Question1.png)
 ### 朴素版prim算法
 和Dijkstra算法很类似     
 1. 先初始所有距离为正无穷->dist[i] = 0x3f    

@@ -1,8 +1,14 @@
+---
+title: "Dijkstra 求最短路（正权边）"
+date: 2024-09-05
+categories: [算法, 图论]
+tags: [图论, 最短路, dijkstra, 正权边, 堆优化, shortest-path, 优先队列]
+---
 # Dijkstra求最短路（正权边）
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question1.png)
 
 此题需要首先理解图论的Dijkstra算法后再来理解代码，这里直接贴代码
 
@@ -120,8 +126,8 @@ int main()
 
 ## 题二
 
-![Question2-1](./pic/Question2-1.png)
-![Question2-2](./pic/Question2-2.png)
+![Question2-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question2-1.png)
+![Question2-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question2-2.png)
 
 本质上就是一道dijkstra算法的简单应用
 
@@ -198,8 +204,8 @@ int main()
 
 ## 题三
 
-![Question3-1](./pic/Question3-1.png)
-![Question3-2](./pic/Question3-2.png)
+![Question3-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question3-1.png)
+![Question3-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question3-2.png)
 
 此题因为边开少了十分逆天地WA一发，与之前地做法不同的是此题相当于求从起点到所有点的最短路径中最长的那一条，所以我们不能在再次遇到点$n$时结束计算。
 
@@ -280,8 +286,8 @@ int main()
 
 ## 题四
 
-![Question4-1](./pic/Question4-1.png)
-![Question4-2](./pic/Question4-2.png)
+![Question4-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question4-1.png)
+![Question4-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question4-2.png)
 
 题意：每只牛所在的位置可能各不相同，求在图中找一个节点使得所有牛到这个节点的距离和最短，并输出这个距离和。
 
@@ -383,8 +389,8 @@ int main()
 
 ## 题五
 
-![Question5-1](./pic/Question5-1.png)
-![Question5-2](./pic/Question5-2.png)
+![Question5-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question5-1.png)
+![Question5-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question5-2.png)
 
 此题也是套模板即可，需要注意的是数据类型，同时因为我们只知道终点的值，所以我们可以反向以收到$100$元的$B$为起点去求$A$的答案。
 
@@ -471,8 +477,8 @@ int main()
 
 ## 题六
 
-![Question6-1](./pic/Question6-1.png)
-![Question6-2](./pic/Question6-2.png)
+![Question6-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question6-1.png)
+![Question6-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question6-2.png)
 
 这题说实话脑子一时半会没转过来，后来看了看y总的数据输入才突然醒悟。
 
@@ -547,9 +553,9 @@ int main()
 
 ## 题七
 
-![Question7-1](./pic/Question7-1.png)
-![Question7-2](./pic/Question7-2.png)
-![Question7-3](./pic/Question7-3.png)
+![Question7-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question7-1.png)
+![Question7-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question7-2.png)
+![Question7-3](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question7-3.png)
 
 题意：问从节点$1$ 至所有节点的花费中哪一个最小，同时每个节点有权重，路径上的任意两个节点的权重差不能超过$m$。从$1$ 到某个节点的花费为其路径权值和加上尾节点的权值。
 
@@ -637,8 +643,8 @@ int main()
 
 ## 题八
 
-![Question8-1](./pic/Question8-1.png)
-![Question8-2](./pic/Question8-2.png)
+![Question8-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question8-1.png)
+![Question8-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question8-2.png)
 
 题意很简单，让我们求出从节点$1$ 起步，经过$a、b、c、d、e$ （无固定顺序）后的最短路径，实际上就是求$a、b、c、d、e$ 全排列且以前者为出发点的最短路径，题目是不难，主要是麻烦，这里我选择先分别预处理出以$1、a、b、c、d、e$ 为出发点的最短路径，而后运用$algorithm$ 库里的 **next_permutation** 函数处理全排列，对于这个函数的运用可以参考如下样例：
 
@@ -768,8 +774,8 @@ int main()
 
 ## 题九
 
-![Question9-1](./pic/Question9-1.png)
-![Question9-2](./pic/Question9-2.png)
+![Question9-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question9-1.png)
+![Question9-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question9-2.png)
 
 此题解法很多，之后我会尝试使用其他题解并更新：
 
@@ -874,7 +880,7 @@ int main()
 
 ## 题十
 
-![Question10](./pic/Question10.png)
+![Question10](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question10.png)
 
 此题是ICPC Asia Pacific Championship E 原题，属于签到题
 
@@ -986,9 +992,9 @@ int main()
 
 ## 题十一
 
-![Question11-1](./pic/Question11-1.png)
-![Question11-2](./pic/Question11-2.png)
-![Question11-3](./pic/Question11-3.png)
+![Question11-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question11-1.png)
+![Question11-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question11-2.png)
+![Question11-3](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question11-3.png)
 
 题目可能有点复杂，先梳理一下：
 
@@ -1169,9 +1175,9 @@ int main(){
 
 ## 题十二
 
-![Question12-1](./pic/Question12-1.png)
-![Question12-2](./pic/Question12-2.png)
-![Question12-3](./pic/Question12-3.png)
+![Question12-1](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question12-1.png)
+![Question12-2](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question12-2.png)
+![Question12-3](/algorithm/graph-theory/shortest-path-problems/Dijkstra/pic/Question12-3.png)
 
 题意：在一个给定的图中，有单向边也有双向边，每个节点有一个权值，求从节点$1$ 走到节点$n$ 路径上后节点与前节点权值差值最大。
 

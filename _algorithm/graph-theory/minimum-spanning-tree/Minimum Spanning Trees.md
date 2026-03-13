@@ -1,3 +1,9 @@
+---
+title: "最小生成树问题（Minimum Spanning Tree - MST）"
+date: 2024-08-20
+categories: [算法, 图论]
+tags: [图论, 最小生成树, mst, prim, kruskal, 并查集, 贪心算法]
+---
 # Minimum Spanning Trees —— 最小生成树
 树是特殊的图（树不能有回路，必须是连通图），就像之前说的，关于树的题都可以通过图的解题思路去做。    
 ***
@@ -14,15 +20,16 @@ Trees are connected(连通的) acyclic(无环的) undirected(无向的) graphs
  3. 这些边要使这个图具有连通性。    
 
 此时得到的子图就是生成树    
-![生成树1](./pic/Spanning%20Tree%20from%20Graph.png)
-![生成树2](./pic/Spanning%20Tree%20from%20Graph2.png)
-![生成树3](./pic/Spanning%20Tree%20from%20Graph3.png)
-![生成树4](./pic/Spanning%20Tree%20from%20Graph4.png)
+![生成树1](/algorithm/graph-theory/minimum-spanning-tree/pic/Spanning%20Tree%20from%20Graph.png)
+![生成树2](/algorithm/graph-theory/minimum-spanning-tree/pic/Spanning%20Tree%20from%20Graph2.png)
+![生成树3](/algorithm/graph-theory/minimum-spanning-tree/pic/Spanning%20Tree%20from%20Graph3.png)
+![生成树4](/algorithm/graph-theory/minimum-spanning-tree/pic/Spanning%20Tree%20from%20Graph4.png)
 
 
 
 ## 最小生成树算法
 在上述生成树中，图四是最小生成树，而大部分时候，我们需要求的就是最小生成树，它的实际应用可以在工程修路中体现，例如我们需要在土路的基础上修高速以到达每个城市，但是每个城市之间有很多条土路，那么最小生成树就是总距离最短的修建方案。
 目前常见的有**prim算法**以及**kruscal算法**
+
 **具体算法详见其分文档**
 

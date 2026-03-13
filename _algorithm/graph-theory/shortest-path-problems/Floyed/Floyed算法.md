@@ -1,3 +1,9 @@
+---
+title: "Floyd 算法（Floyd-Warshall）"
+date: 2024-01-01
+categories: [算法, 图论]
+tags: [图论, 最短路, floyd, floyd-warshall, 多源最短路, 动态规划, shortest-path]
+---
 # Floyed算法
 
 时间复杂度O(n) = n^3
@@ -38,7 +44,7 @@ for(int k = 1;k<=n;k++)
 }
 ```
 ## 题一
-![题一](./pic/Question1.png)
+![题一](/algorithm/graph-theory/shortest-path-problems/Floyed/pic/Question1.png)
 ```cpp
 #include <iostream>
 

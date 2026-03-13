@@ -1,8 +1,14 @@
+---
+title: "Bellman-Ford 算法"
+date: 2023-09-10
+categories: [算法, 图论]
+tags: [图论, 最短路, bellman-ford, 负权边, 负环检测, shortest-path]
+---
 # Bellman-Ford算法
-![题一](./pic/Question1.png)
+![题一](/algorithm/graph-theory/shortest-path-problems/Bellman-Ford/pic/Question1.png)
 这个算法可以随意存边，只需要让我们可以遍历到所有的边就行。    
 此算法一般用来处理存在有负权边的图，伪代码流程大概如下：    
-![算法伪代码](./pic/Bellman-Ford.png)
+![算法伪代码](/algorithm/graph-theory/shortest-path-problems/Bellman-Ford/pic/Bellman-Ford.png)
 
 在两层for循环结束后存在dist[b]<=dist[a] + w; 的三角不等式成立。    
 
@@ -50,5 +56,5 @@ int main()
 ```
 
 为什么这里要使用备份？    
-![为什么需要备份](./pic/whyBackup.png)    
+![为什么需要备份](/algorithm/graph-theory/shortest-path-problems/Bellman-Ford/pic/whyBackup.png)    
 会发生串联现象：在我们更新起点到b的距离时，如果我们使用未备份的dist数组，当k=1时，我们最多只能使用一条边使a->b，a->b的距离是两条边也就是a->b实际上的距离应该是**正无穷**（它们不直接连接），结果因为使用了上一次更新的dist，那么a->b就会有a->中间节点->b的情况出现而影响结果

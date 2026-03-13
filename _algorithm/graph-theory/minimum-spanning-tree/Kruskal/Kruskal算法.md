@@ -1,8 +1,14 @@
+---
+title: "Kruskal 算法"
+date: 2024-08-10
+categories: [算法, 图论]
+tags: [图论, 最小生成树, kruskal, 并查集, 贪心算法, mst, 边排序]
+---
 # Kruskal算法
 
 时间复杂度：O(mlogm)
 
-![Kruskal算法的思想](./pic/Idea%20of%20Kruskal.png)
+![Kruskal算法的思想](/algorithm/graph-theory/minimum-spanning-tree/Kruskal/pic/Idea%20of%20Kruskal.png)
 
 Kruskal算法的基本思想：
 
@@ -15,7 +21,7 @@ Kruskal算法的基本思想：
 
 ## 题一
 
-![题一](./pic/Question1.png)
+![题一](/algorithm/graph-theory/minimum-spanning-tree/Kruskal/pic/Question1.png)
 
 ```cpp
 #include <iostream>
